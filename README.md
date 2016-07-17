@@ -21,6 +21,7 @@
 * [Iterators](#15-iterators)
 * [Generators](#16-generators)
 * [Promises](#17-promises)
+* [Property Shorthands](#18-property-shorthand)
 
 <br>
 
@@ -646,3 +647,38 @@ p.then(eventuallyAdd1)
  .then(eventuallyAdd1)
  .then((val) => console.log(val)) // 3
 ```
+### 18. Property Shorthand
+
+If a method accepts large configuration objects as an argument, your code can become quite large. It’s common to prepare some variables, and add them to said object. Property shorthands are syntactic sugar to make this step shorter and more readable.
+
+```javascript
+const a = 'foo', b = 42, c = function () {};
+
+// Previously we would use these constants like this.
+const alphabet = {
+  a: a,
+  b: b,
+  c: c
+};
+
+// But with the new shorthand we can actually do this now,
+// which is equivalent to the above.
+const alphabet = { a, b, c };
+
+// Instead of writing the function keyword everytime,
+const module = {
+  foo: 42,
+  bar: function (value) {
+    // do something
+  }
+};
+
+// we can just omit it and have shorter declarations
+const module = {
+  foo: 42,
+  bar (value) {
+    // do something
+  }
+};
+```
+
